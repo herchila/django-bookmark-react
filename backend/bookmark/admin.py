@@ -1,3 +1,14 @@
 from django.contrib import admin
 
-# Register your models here.
+from  .models import Bookmark, Tag
+
+
+class BookmarkAdmin(admin.ModelAdmin):
+	list_display = ('title', 'owner')
+
+
+class TagAdmin(admin.ModelAdmin):
+	list_display = ('name',)
+
+admin.site.register(Bookmark, BookmarkAdmin)
+admin.site.register(Tag, TagAdmin)
