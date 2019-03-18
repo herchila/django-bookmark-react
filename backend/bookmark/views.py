@@ -3,8 +3,11 @@ from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, get_object_or_404, redirect
 
+from rest_framework import viewsets
+from .serializers import BookmarkSerializer, TagSerializer
+
 from .forms import BookmarkForm
-from .models import Bookmark
+from .models import Bookmark, Tag
 
 
 def bookmark_list(request):
@@ -59,3 +62,12 @@ def bookmark_edit(request, pk):
     
     context = {'form': form, 'created': False}
     return render(request, 'web/form.html', context)
+
+class BookmarkView(viewsets.ModelViewSet):
+    serializer_class = BookmarkSerializer
+    queryset = Bookmark.objects.all()
+
+
+class TagView(viewsets.ModelViewSet):
+    serializer_class = TagSerializer
+    queryset = Tag.objects.all()
