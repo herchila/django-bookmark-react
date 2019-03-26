@@ -17,6 +17,14 @@ from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from django.urls import path, include, reverse_lazy
 
+from rest_framework import routers
+
+from bookmark import views
+
+router = routers.DefaultRouter()
+router.register(r'bookmarks', views.BookmarkView, 'bookmark')
+router.register(r'tags', views.TagView, 'tag')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('bookmark.urls')),
@@ -24,4 +32,7 @@ urlpatterns = [
         name='web-bookmark-login'),
     path('logout/', auth_views.LogoutView.as_view(),
         {'next_page': reverse_lazy('web-bookmark-list')}, name='web-bookmark-logout'),
+    
+    # DJANGO REST FRAMEWORK
+    path('api/', include(router.urls))
 ]
