@@ -1,0 +1,18 @@
+{
+	"bookmarks" :[
+	    {
+	        "id": 2,
+	        "url": "https://pypi.org/",
+	        "title": "The Python Package Index (PyPI)",
+	        "description": "The Python Package Index (PyPI) is a repository of software for the Python programming language.",
+	        "owner": 1
+	    },
+	    {
+	        "id": 1,
+	        "url": "https://www.python.org/",
+	        "title": "Python Programming Language",
+	        "description": "Python is a programming language that lets you work quickly and integrate systems more effectively.",
+	        "owner": 1
+	    }
+	]
+}
